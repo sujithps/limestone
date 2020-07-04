@@ -2,6 +2,6 @@
 
 class AddActiveToPlans < ActiveRecord::Migration[5.2]
   def change
-    add_column :plans, :active, :boolean, default: true, null: false
+    add_column :products, :active, :boolean, default: true, null: false
   end
 end
