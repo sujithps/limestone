@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -13,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2020_07_01_012054) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -73,8 +72,8 @@ ActiveRecord::Schema.define(version: 2020_07_01_012054) do
     t.integer "amount", null: false
     t.string "currency", default: "USD", null: false
     t.string "interval", default: "month", null: false
-    t.boolean "active", default: true, null: false
     t.string "stripe_id"
+    t.boolean "active", default: true, null: false
     t.index ["product_id"], name: "index_plans_on_product_id"
   end
 
@@ -89,7 +88,6 @@ ActiveRecord::Schema.define(version: 2020_07_01_012054) do
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.string "name", null: false
-    t.boolean "admin", default: false, null: false
     t.string "encrypted_password", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -99,17 +97,18 @@ ActiveRecord::Schema.define(version: 2020_07_01_012054) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
+    t.boolean "admin", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "card_last4"
+    t.integer "card_exp_month"
+    t.integer "card_exp_year"
+    t.string "card_type"
     t.datetime "discarded_at"
     t.integer "plan_id"
     t.string "processor"
     t.string "processor_id"
     t.datetime "trial_ends_at"
-    t.string "card_type"
-    t.string "card_last4"
-    t.string "card_exp_month"
-    t.string "card_exp_year"
     t.text "extra_billing_info"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
@@ -120,4 +119,5 @@ ActiveRecord::Schema.define(version: 2020_07_01_012054) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
 end
